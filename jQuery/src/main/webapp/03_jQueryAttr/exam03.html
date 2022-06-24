@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/event.css">
+</head>
+<body>
+<h1>전체 선택 기능 구현하기</h1>
+<form name="form1">
+	<fieldset>
+		<legend>취미</legend>
+		<p>
+			<input type="checkbox" id="all_check" value="Y" />
+			<label for="all_check">전체 선택</label>
+		</p>
+		<p>
+			<input type="checkbox" id="hobby1" class="hobby_check" value="축구" />
+			<label for="hobby1">축구</label>
+			<input type="checkbox" id="hobby2" class="hobby_check" value="농구" />
+			<label for="hobby2">농구</label>
+			<input type="checkbox" id="hobby3" class="hobby_check" value="야구" />
+			<label for="hobby3">야구</label>
+		</p>
+	</fieldset>
+	</form>
+	
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#all_check').change(function(){
+		var is_check = $(this).is(':checked');
+		console.log('is_check = ' + is_check);
+		
+		$('.hobby_check').prop('checked', is_check); //attr은 잘 안됨
+	});
+});
+</script>
+</body>
+</html>
+
+<!-- 
+카멜의 법칙
+- 첫글자 소문자 / 다른 단어 올때는 다시 대문자
+ -->
+ 
+ <!-- 
+ .attr 사용하면 전체 선택/해제 가능
+ but 전체 선택 후 일부를 해제한 후 다시 전체 선택/해제 하면 제대로 안 나옴
+  -->

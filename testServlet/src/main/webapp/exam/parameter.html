@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type = "text/javascript">
+function check(){
+	//if(document.parameterForm.name.value == "") alert("이름을 입력하세요");
+	//else if(document.parameterForm.age.value == "") alert("나이를 입력하세요"); <!--세미콜론은 찍어도 되고 안찍어도 됨-->
+	
+	//if(document.getElementById("name").value == "") alert("이름을 입력하세요")
+	//else if(document.getElementById("age").value == "") alert("나이를 입력하세요")
+	
+	document.getElementById("nameDiv").innerText = "";
+	document.getElementById("ageDiv").innerText = "";
+	if(document.getElementById("name").value == "") 
+		document.getElementById("nameDiv").innerText = "이름을 입력하세요"
+	else if(document.getElementById("age").value == "")
+		document.getElementById("ageDiv").innerText = "나이를 입력하세요"
+	else
+		document.parameterForm.submit();
+}
+</script>
+<style type="text/css">
+#nameDiv {
+	font-size: 8pt;
+	color: red;
+	font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+<h3>연령제한</h3>
+<form name="parameterForm" method="" action="http://localhost:8080/testServlet/ParamServlet">
+<table border="1">
+	<tr>
+		<td width="100" align="center">이름</td>
+		<td>
+			<input type="text" name="name" id="name" placeholder="이름 입력">
+			<div id="nameDiv"></div>
+		</td>
+	</tr>
+	<tr>
+		<td width="100" align="center">나이</td>
+		<td>
+			<input type="text" name="age" id="age" size="7">
+			<div id="ageDiv" style="border: 1px red solid; font-size: 8pt; color: blue;"></div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<input type = "button" value="보내기" onclick="check()">
+			<input type = "reset" value="취소">
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>
+
+<!-- 
+submit : <form> 안의 데이터를 가지고 다음 페이지로 이동
+action : 이동할 페이지의 URL
+ -->

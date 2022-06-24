@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<title>Insert title here</title>
+<style type="text/css">
+html { height: 100%; }
+body { height: 100%; margin: 0; padding: 0;}
+#map { width: 100%; height: 100%;}
+</style>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appKey=41df2e74d049b5353a92740f3b86d3a8"></script>
+<script type="text/javascript">
+window.onload=function(){
+	var position = new daum.maps.LatLng(37.579617, 126.977041);
+	var container = document.getElementById("map");
+	var options = {
+			center: position,
+			level: 3, //지도의 확대 레벨
+			draggable: false //마우스 드래그하여 확대/축소가 안됨
+	}
+	var map = new daum.maps.Map(container, options); //지도 생성
+	var marker = new daum.maps.Marker({
+		position: position //지도 중심 좌표에 마커 생성
+	});
+	marker.setMap(map); //마커 표시
+}
+</script>
+</head>
+<body>
+<div id="map"></div>
+</body>
+</html>
+
+<!-- 
+1. 뷰포트 선언
+   <meta name="viewport"
+2. 컨텐트 선언
+   content="width=device-width (디바이스 크기에 맞추겠다고 선언)
+            initial-scale=1.0 (초기 크기 스케일 설정)
+            minimum-scale=1.0 (최소 크기 설정 / 범위: 0~10.0)
+            maximum-scale=1.0 (최대 크기 설정 / 범위: 0~10.0)
+            user-scalable=no (사용자 기기 확대기능 사용 유/무 설정, yes/no)
+            
+Kakao Maps API 
+- 다양한 기능과 소스를 알려준다
+https://apis.map.kakao.com/web/sample/enableDisableZoomInOut/            
+  -->

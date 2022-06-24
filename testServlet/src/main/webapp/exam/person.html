@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type = "text/javascript">
+function check(){
+	if(document.getElementById("name").value == "") 
+		document.getElementById("nameDiv").innerText = "이름을 입력하세요"
+	else document.personForm.submit();
+}
+</script>
+</head>
+<body>
+<form name="personForm" method="" action="http://localhost:8080/testServlet/PersonServlet">
+<table border="1">
+	<tr>
+		<td width="50" align="center">이름</td>
+		<td>
+			<input type="text" name="name" id="name" placeholder="이름 입력">
+			<div id="nameDiv" style="font-size: 8pt; color: red;"></div>
+		</td>
+	</tr>
+	<tr>
+		<td width="50" align="center">성별</td>
+		<td>
+			<label><input type="radio" name="gender" id="gender1" value="0" checked>남</label>
+			<label><input type="radio" name="gender" id="gender2" value="1">여</label>
+		</td>
+	</tr>
+	<tr>
+		<td width="50" align="center">색깔</td>
+		<td>
+			<select name="color" id="color">
+				<option value="red">빨강</option>
+				<option value="green">초록</option>
+				<option value="blue">파랑</option>
+				<option value="magenta">보라</option>
+				<option value="cyan">하늘</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td width="50" align="center">취미</td>
+		<td>
+			<label><input type="checkbox" name = "hobby" value="독서">독서</label>
+			<label><input type="checkbox" name = "hobby" value="영화">영화</label>
+			<label><input type="checkbox" name = "hobby" value="음악">음악</label>
+			<label><input type="checkbox" name = "hobby" value="게임">게임</label>
+			<label><input type="checkbox" name = "hobby" value="쇼핑">쇼핑</label>
+		</td>
+	</tr>
+	<tr>
+		<td width="50" align="center">과목</td>
+		<td>
+			<select size="4" name="subject" id="subject" multiple="multiple">
+		        <option value="java">Java</option>
+		        <option value="servlet" selected>Servlet</option>
+		        <option value="jsp">JSP</option>
+		        <option value="spring">SPRING</option>
+     		</select>
+		</td>
+	</tr>
+	
+	<tr>
+	<td colspan="2" align="center">
+			<input type = "button" value="SEND" onclick="check()">
+			<input type = "reset" value="CANCEL">
+		</td>
+	</tr>
+
+</table>
+</form>
+</body>
+</html>
